@@ -1,2 +1,3 @@
 rootProject.name = 'java-kata'
 
+include 'leap-year'
