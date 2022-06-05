@@ -2,3 +2,4 @@ rootProject.name = 'java-kata'
 
 include 'leap-year'
 include 'dictionary-replacer'
+include 'employee-report'
