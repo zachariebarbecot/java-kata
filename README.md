@@ -11,3 +11,7 @@ Link: https://codingdojo.org/kata/DictionaryReplacer/
 ## Employee Report
 
 Link: https://codingdojo.org/kata/Employee-Report/
+
+## Banking
+
+Link: https://kata-log.rocks/banking-kata
