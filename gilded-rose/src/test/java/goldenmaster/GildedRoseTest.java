@@ -2,14 +2,13 @@ package goldenmaster;
 
 import fr.zbar.kata.gildedrose.GildedRose;
 import fr.zbar.kata.gildedrose.Item;
+import org.approvaltests.Approvals;
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 class GildedRoseTest {
 
     @Test
-    void foo() {
+    void golden_master() {
         Item[] items = new Item[]{
                 new Item("+5 Dexterity Vest", 10, 20),
                 new Item("Aged Brie", 2, 0),
@@ -23,27 +22,11 @@ class GildedRoseTest {
         };
         GildedRose app = new GildedRose(items);
 
-        app.updateQuality();
+        for (int i = 0; i < 7; i++) {
+            app.updateQuality();
+        }
 
-        assertThat(app.items)
-                .extracting("name")
-                .containsExactly(
-                        "+5 Dexterity Vest",
-                        "Aged Brie",
-                        "Elixir of the Mongoose",
-                        "Sulfuras, Hand of Ragnaros",
-                        "Sulfuras, Hand of Ragnaros",
-                        "Backstage passes to a TAFKAL80ETC concert",
-                        "Backstage passes to a TAFKAL80ETC concert",
-                        "Backstage passes to a TAFKAL80ETC concert",
-                        "Conjured Mana Cake"
-                );
-        assertThat(app.items)
-                .extracting("sellIn")
-                .containsExactly(9, 1, 4, 0, -1, 14, 9, 4, 2);
-        assertThat(app.items)
-                .extracting("quality")
-                .containsExactly(19, 1, 6, 80, 80, 21, 50, 50, 5);
+        Approvals.verifyAll("", app.items);
     }
 
 }
