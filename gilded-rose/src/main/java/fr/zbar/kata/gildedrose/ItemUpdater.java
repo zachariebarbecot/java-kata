@@ -10,26 +10,38 @@ public class ItemUpdater {
         item.sellIn = item.sellIn - 1;
 
         if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            if (item.sellIn < 10) {
-                increaseQuality(item);
-            }
-            if (item.sellIn < 5) {
-                increaseQuality(item);
-            }
-            increaseQuality(item);
-            if (item.sellIn < 0) {
-                item.quality = 0;
-            }
+            updateQualityForBackstagePasses(item);
         } else if (item.name.equals("Aged Brie")) {
-            increaseQuality(item);
-            if (item.sellIn < 0) {
-                increaseQuality(item);
-            }
+            updateQualityForAgedBrie(item);
         } else {
+            updateQualityForCommonItem(item);
+        }
+    }
+
+    private static void updateQualityForBackstagePasses(Item item) {
+        if (item.sellIn < 10) {
+            increaseQuality(item);
+        }
+        if (item.sellIn < 5) {
+            increaseQuality(item);
+        }
+        increaseQuality(item);
+        if (item.sellIn < 0) {
+            item.quality = 0;
+        }
+    }
+
+    private static void updateQualityForAgedBrie(Item item) {
+        increaseQuality(item);
+        if (item.sellIn < 0) {
+            increaseQuality(item);
+        }
+    }
+
+    private static void updateQualityForCommonItem(Item item) {
+        decreaseQuality(item);
+        if (item.sellIn < 0) {
             decreaseQuality(item);
-            if (item.sellIn < 0) {
-                decreaseQuality(item);
-            }
         }
     }
 
