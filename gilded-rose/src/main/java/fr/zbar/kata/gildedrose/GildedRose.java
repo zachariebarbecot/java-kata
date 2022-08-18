@@ -1,5 +1,7 @@
 package fr.zbar.kata.gildedrose;
 
+import java.util.Arrays;
+
 public class GildedRose {
     public Item[] items;
 
@@ -8,8 +10,7 @@ public class GildedRose {
     }
 
     public void updateQuality() {
-        for (Item item : items) {
-            ItemUpdater.updateQuality(item);
-        }
+        Arrays.stream(items)
+                .forEach(ItemUpdater::updateQuality);
     }
 }
