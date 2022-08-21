@@ -4,4 +4,4 @@ include 'leap-year'
 include 'dictionary-replacer'
 include 'employee-report'
 include 'banking'
-
+include 'gilded-rose'
