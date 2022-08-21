@@ -1,4 +1,4 @@
-package fr.zbar.kata.gildedrose;
+package fr.zbar.kata.gildedrose.ext;
 
 public class Item {
 
